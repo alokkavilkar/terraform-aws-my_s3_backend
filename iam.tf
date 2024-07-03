@@ -1,4 +1,4 @@
-data "aws_caller_idenity" "myrole" {}
+data "aws_caller_identity" "myrole" {}
 locals {
 	principal_arns = data.aws_caller_identity.myrole.arn
 }
