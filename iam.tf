@@ -1,5 +1,6 @@
+data "aws_caller_idenity" "myrole" {}
 locals {
-	principal_arns = var.principal_arns
+	principal_arns = data.aws_caller_identity.myrole.arn
 }
 
 resource "aws_iam_role" "iam_role" {
