@@ -1,3 +1,4 @@
+
 data "aws_caller_identity" "myrole" {}
 locals {
 	principal_arns = data.aws_caller_identity.myrole.arn
@@ -8,16 +9,20 @@ resource "aws_iam_role" "iam_role" {
 	
 	assume_role_policy = <<-EOF
 	{
-		"Version" : "2012-10-17",
-		"Statement" : {
-			"Action" : "sts:AssumeRole"
-			"Principal" : {
-				"AWS" : ${jsonencode(local.principal_arns)}
-			}
-			"Effect" : "Allow"
+		"Version": "2012-10-17",
+		"Statement": [
+		{
+			"Effect": "Allow",
+			"Principal": {
+			"AWS": ${jsonencode(local.principal_arns)}
+			},
+			"Action": "sts:AssumeRole"
 		}
+		]
 	}
-	EOF
+  EOF
+
+
 	
 	tags = {
 		ResourceGroup = local.namespace

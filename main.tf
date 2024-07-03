@@ -1,3 +1,7 @@
+provider "aws" {
+  region = var.region
+}
+
 resource "random_string" "rand" {
 	length 		= 24
 	special		= false
@@ -59,7 +63,7 @@ resource "aws_s3_bucket_public_access_block" "s3_bucket" {
 
 resource "aws_dynamodb_table" "dynamo_db_table" {
 	name 		 	= "${local.namespace}-s3-dynamo"
-	hash_key		= "LockId"
+	hash_key		= "LockID"
 	billing_mode		= "PROVISIONED"
 	read_capacity		= 1
 	write_capacity		= 1
