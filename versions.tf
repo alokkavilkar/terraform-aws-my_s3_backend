@@ -6,7 +6,7 @@ terraform {
 			version = "~> 3.28"
 		}
 		random = {
-			source = "hashicorp/aws"
+			source = "hashicorp/random"
 			version = "~> 3.0"
 		}
 	}
