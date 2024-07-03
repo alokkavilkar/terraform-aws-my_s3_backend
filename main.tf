@@ -13,7 +13,7 @@ locals {
 }
 
 resource "aws_resourcegroups_group" "my-project-resource" {
-	name = "$alok-s3-backend-${local.namespace}-group"
+	name = "alok-s3-backend-${local.namespace}-group"
 
 	resource_query {
 		query = <<-EOF
