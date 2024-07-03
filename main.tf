@@ -9,11 +9,11 @@ resource "random_string" "rand" {
 }
 
 locals {
-	namespace = substr(join("-", [var.namespace, random_string.rand.result]), 0, 24)
+	namespace = "alok"
 }
 
 resource "aws_resourcegroups_group" "my-project-resource" {
-	name = "alok-s3-backend-${local.namespace}-group"
+	name = "${local.namespace}-group"
 
 	resource_query {
 		query = <<-EOF
