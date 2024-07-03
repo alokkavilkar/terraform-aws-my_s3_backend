@@ -54,6 +54,6 @@ resource "aws_iam_policy" "my_policy" {
 
 resource "aws_iam_role_policy_attachment" "policy_attach" {
 	role 			= aws_iam_role.iam_role.name
-	policy			= aws_iam_policy.my_policy.arn
+	policy_arn		= aws_iam_policy.my_policy.arn
 }
 
