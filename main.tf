@@ -17,10 +17,10 @@ resource "aws_resourcegroups_group" "my-project-resource" {
 
 	resource_query {
 		query = <<-EOF
-		{	
-			"ResourceTypeFilters" : ["AWS::AllSupported"]
-			"TagFilters" : [{"Key" : "ResourceGroup", "Values" : ["${local.namespace}"]}]
-		}
+			{	
+				"ResourceTypeFilters" : ["AWS::AllSupported"],
+				"TagFilters" : [{"Key" : "ResourceGroup", "Values" : ["${local.namespace}"]}]
+			}
 		EOF	
 	}
 }
